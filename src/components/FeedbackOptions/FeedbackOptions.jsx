@@ -6,9 +6,9 @@ const FeedbackOptions = ({ options, onLeaveFeedback }) => {
     const label = str => str.charAt(0).toUpperCase() + str.slice(1)
   return (
 		<ButtonList>
-			{options.map((option) => (
+			{Object.keys(options).map((option) => (
 				<Button key={option}  type="button" onClick={onLeaveFeedback} name={option}>
-					{label(option)}
+					{label(option)} 
 				</Button>
             ))}
           
@@ -19,7 +19,7 @@ const FeedbackOptions = ({ options, onLeaveFeedback }) => {
 export default FeedbackOptions;
 
 FeedbackOptions.propTypes = {
-    options: PropTypes.arrayOf(PropTypes.string).isRequired,
+    options: PropTypes.objectOf(PropTypes.number).isRequired,
     onLeaveFeedback: PropTypes.func.isRequired
 }
 
